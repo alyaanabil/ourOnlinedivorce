@@ -8,11 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Lalezar&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#fbf6ea;
-    --ink:#2e2320;
-    --line:#c9bfa8;
-    --pink:#ff6f9c;
-    --pink-deep:#e14b7d;
+    --paper:#f0f0f0;
+    --ink:#2a2a2c;
+    --line:#a9a9ac;
+    --pink:#6e6e72;
+    --pink-deep:#4a4a4e;
     --stamp:#4a1f22;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
@@ -21,7 +21,7 @@
     margin:0;
     min-height:100dvh;
     display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(160deg,#ffd9e6,#ffc2d8 40%,#ffb3cf);
+    background:linear-gradient(160deg,#232326,#2f2f33 40%,#1c1c1e);
     font-family:'Aref Ruqaa',serif;
     overflow-x:hidden;
     position:relative;
@@ -35,11 +35,11 @@
   /* ---------- ENTRY SCREEN ---------- */
   #entry{
     width:min(90vw,380px);
-    background:#fffaf3;
+    background:#f4f4f4;
     border-radius:26px;
     padding:38px 26px;
     text-align:center;
-    box-shadow:0 20px 40px rgba(120,30,60,.25);
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
     position:relative;
     z-index:2;
   }
@@ -68,7 +68,7 @@
     background:var(--pink-deep);
     color:#fff;
     cursor:pointer;
-    box-shadow:0 8px 18px rgba(225,75,125,.45);
+    box-shadow:0 8px 18px rgba(0,0,0,.4);
     transition:transform .15s;
   }
   #entry button:active{transform:scale(.94);}
@@ -80,7 +80,7 @@
     max-height:96dvh;
     overflow-y:auto;
     background:
-      repeating-linear-gradient(var(--paper) 0 34px, #efe6d0 35px, var(--paper) 36px),
+      repeating-linear-gradient(var(--paper) 0 34px, #dcdcdc 35px, var(--paper) 36px),
       var(--paper);
     border-radius:6px;
     padding:34px 24px 28px;
@@ -116,11 +116,24 @@
     color:var(--ink);
     margin-bottom:6px;
   }
+  .sig-hint{
+    text-align:center;
+    font-size:12px;
+    color:#7a7a7d;
+    margin:0 0 6px;
+  }
   .sig-line{
     position:relative;
     height:110px;
     border-bottom:2px dashed var(--line);
     touch-action:none;
+  }
+  .sign-arrow{
+    position:absolute;
+    top:-6px;right:20%;
+    font-size:32px;
+    color:#c62828;
+    pointer-events:none;
   }
   .fingerprint{
     position:absolute;
@@ -141,7 +154,7 @@
   }
   #popupCard{
     width:min(88vw,320px);
-    background:#fff6f9;
+    background:#f4f4f4;
     border-radius:22px;
     padding:22px 18px 18px;
     text-align:center;
@@ -151,7 +164,7 @@
   #closeBtn{
     position:absolute;top:8px;left:10px;
     background:none;border:none;
-    font-size:20px;color:#b56;
+    font-size:20px;color:#666;
     cursor:pointer;
   }
   #popupText{
@@ -189,7 +202,7 @@
       <div class="sig-label">توقيع السيدة الفاضلة المؤدبة</div>
       <div class="sig-line">
         <svg id="fpFixed" class="fingerprint" viewBox="0 0 100 100">
-          <g fill="none" stroke="#4a1f22" stroke-width="2.4" stroke-linecap="round">
+          <g fill="none" stroke="#1d4fa3" stroke-width="2.4" stroke-linecap="round">
             <ellipse cx="50" cy="52" rx="9" ry="13"/>
             <ellipse cx="50" cy="52" rx="16" ry="22"/>
             <path d="M28 48 Q50 24 72 48"/>
@@ -202,15 +215,11 @@
 
     <div class="sig-block">
       <div class="sig-label">توقيع السيد النوتي جدًا</div>
+      <p class="sig-hint">(💔اتفضل دوس على الدايرة عشان تبصم)</p>
       <div class="sig-line" id="escapeZone">
+        <div class="sign-arrow">↘</div>
         <svg id="fpMoving" class="fingerprint" viewBox="0 0 100 100">
-          <g fill="none" stroke="#4a1f22" stroke-width="2.4" stroke-linecap="round">
-            <ellipse cx="50" cy="52" rx="9" ry="13"/>
-            <ellipse cx="50" cy="52" rx="16" ry="22"/>
-            <path d="M28 48 Q50 24 72 48"/>
-            <path d="M26 60 Q50 84 74 60"/>
-            <ellipse cx="50" cy="52" rx="28" ry="37" stroke-dasharray="60 14"/>
-          </g>
+          <circle cx="50" cy="50" r="34" fill="none" stroke="#141414" stroke-width="5"/>
         </svg>
       </div>
     </div>
@@ -244,7 +253,7 @@
   for(let i=0;i<10;i++){
     const h=document.createElement('div');
     h.className='heart';
-    h.textContent='💗';
+    h.textContent='💔';
     h.style.left=Math.random()*100+'vw';
     h.style.animationDuration=(6+Math.random()*6)+'s';
     h.style.animationDelay=(Math.random()*6)+'s';
